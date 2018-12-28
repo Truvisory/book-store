@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar'
 import CartModal from './components/cartmodal';
-import BookCards from './components/bookcards'
+import BookCardsTitle from './components/bookcardstitle'
+import BookCardsAuthor from './components/bookcardsauthor'
 import Loader from 'react-loader-spinner'
 
 class App extends Component {
@@ -9,18 +10,18 @@ class App extends Component {
     super()
       this.state = {
         books: [],
-        bookTitles: []
+        filter: "title"
       }
   }
-
-  getBookTitles = () => this.state.books.map(book => <p key={book.title}>{book.title}</p>)
-  getBookAuthors = () => this.state.books.map(book => <p key={book.author}>{book.author}</p>)
 
   async componentDidMount() {
     const response = await fetch('http://localhost:8082/api/books')
     const json = await response.json()
     this.setState({books: json})
   }
+
+  author = () => this.setState({ filter: "author" })
+  title = () => this.setState({ filter: "title" })
 
   // fetchBooks = () => {
   //   return fetch('http://localhost:8082/api/books')
@@ -38,10 +39,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
+      <div className="bg-light">
+        <NavBar 
+          author={this.author} 
+          title={this.title}/>
         <CartModal />
-        {this.state.books.length ? <BookCards books={this.state.books} /> : <Loader type="Grid" color="red" height={80} width={80} /> }
+        {this.state.books[0] && this.state.filter === "title"
+          ? <BookCardsTitle books={this.state.books} />
+          : this.state.books[0] && this.state.filter === "author"
+          ? <BookCardsAuthor books={this.state.books} />
+          : <Loader type="Grid" color="red" height={80} width={80} />}
       </div>
     );
   }
