@@ -11,12 +11,12 @@ const NavBar = () => {
                 <button type="button" className="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span className="sr-only">Toggle Dropdown</span>
                 </button>
-                <div className="dropdown-menu text-center" x-placement="bottom-start" style={{right: '0px'}}>
+                <div className="dropdown-menu text-center" style={{right: '0px'}}>
                     <a className="dropdown-item" href="/#">Arrange List by Author</a>
                     <a className="dropdown-item" href="/#">Arrange List by Title</a>
                 </div>
             </div>
-            <button type="button" className="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal" style={{marginLeft: '5px'}}>Cart <span className="badge badge-light">4</span></button>
+            <button type="button" className="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#exampleModal" style={{marginLeft: '5px'}}>Cart <span className="badge badge-light">4</span></button>
         </div>
     </nav>
   )
