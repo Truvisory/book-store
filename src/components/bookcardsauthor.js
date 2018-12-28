@@ -10,14 +10,14 @@ const BookCardsAuthor = (props) => {
                             <h5 className="card-title">{books.author}</h5>
                             <p className="card-text">{books.title}</p>
                             {/* <button className="btn btn-outline-primary btn-block">Purchase for ${books.price}</button> */}
-                            <form>
+                            <form onSubmit={props.addToCart}>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text">${books.price} ea.</span>
                                     </div>
                                     <input type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Quantity"/>
                                     <div className="input-group-append">
-                                        <button className="btn btn-outline-secondary" type="button" id="button-addon2">Add to Cart</button>
+                                        <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Add to Cart</button>
                                     </div>
                                 </div>
                             </form>
