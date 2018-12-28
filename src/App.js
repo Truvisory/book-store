@@ -37,12 +37,11 @@ class App extends Component {
   // }
 
   render() {
-    const skoobs = this.state.books
     return (
       <div>
         <NavBar />
         <CartModal />
-        <BookCards books={skoobs}/>
+        {this.state.books.length ? <BookCards books={this.state.books} /> : <Loader type="Grid" color="red" height={80} width={80} /> }
       </div>
     );
   }
