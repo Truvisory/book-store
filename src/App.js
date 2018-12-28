@@ -12,7 +12,9 @@ class App extends Component {
       this.state = {
         books: [],
         filter: "title",
-        orderList: []
+        badge: "d-none",
+        orderList: [],
+        total: 0
       }
   }
 
@@ -25,35 +27,36 @@ class App extends Component {
   author = () => this.setState({ filter: "author" })
   title = () => this.setState({ filter: "title" })
   addToCart = (e) => { e.preventDefault()
-    console.log(e.target[0].value)
     let filteredProducts = this.state.books.filter((stuff) => stuff.id === e.target[0].id * 1 )
-    console.log(filteredProducts[0].title)
+    let order = {
+      bookTitle: filteredProducts[0].title,
+      quantity: e.target[0].value * 1,
+      subTotal: filteredProducts[0].price * e.target[0].value}
+    let total = this.state.total
+    // e.target[0].value < 1
+    //   ? this.setState( {
+    //       quantClass: "form-control alert-warning", 
+    //       placeHolder: "Please Enter 1 or Greater" }) :
+    this.setState( {
+      orderList: [...this.state.orderList, order],
+      badge: "badge badge-light",
+      total: total += order.subTotal})
     e.target.reset()
     // let quantity = e.target
     // console.log(quantity)
   }
-
-  // fetchBooks = () => {
-  //   return fetch('http://localhost:8082/api/books')
-  //   .then(res => res.json())
-  //   .then(books => {
-  //     this.setState({books: books})
-  //     return books
-  //   })
-  // }
-
-  // componentDidMount() {
-  //   this.fetchBooks()
-  //     .catch(err => console.error(err))
-  // }
 
   render() {
     return (
       <div className="bg-light">
         <NavBar 
           author={this.author} 
-          title={this.title}/>
-        <CartModal />
+          title={this.title}
+          badge={this.state.badge}
+          orderItems={this.state.orderList.length}/>
+        <CartModal 
+          orderList={this.state.orderList}
+          total={this.state.total}/>
         {this.state.books[0] && this.state.filter === "title"
           ? <BookCardsTitle
               books={this.state.books}
@@ -69,3 +72,19 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+  // fetchBooks = () => {
+  //   return fetch('http://localhost:8082/api/books')
+  //   .then(res => res.json())
+  //   .then(books => {
+  //     this.setState({books: books})
+  //     return books
+  //   })
+  // }
+
+  // componentDidMount() {
+  //   this.fetchBooks()
+  //     .catch(err => console.error(err))
+  // }

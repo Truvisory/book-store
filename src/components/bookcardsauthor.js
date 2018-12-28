@@ -15,7 +15,7 @@ const BookCardsAuthor = (props) => {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text">${books.price} ea.</span>
                                     </div>
-                                    <input type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Quantity"/>
+                                    <input id={books.id} type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Quantity"/>
                                     <div className="input-group-append">
                                         <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Add to Cart</button>
                                     </div>
