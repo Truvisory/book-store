@@ -13,6 +13,8 @@ class App extends Component {
         books: [],
         filter: "title",
         badge: "d-none",
+        quantClass: "form-control",
+        placeholder: "Quantity",
         orderList: [],
         total: 0
       }
@@ -33,17 +35,17 @@ class App extends Component {
       quantity: e.target[0].value * 1,
       subTotal: filteredProducts[0].price * e.target[0].value}
     let total = this.state.total
-    // e.target[0].value < 1
-    //   ? this.setState( {
-    //       quantClass: "form-control alert-warning", 
-    //       placeHolder: "Please Enter 1 or Greater" }) :
-    this.setState( {
-      orderList: [...this.state.orderList, order],
-      badge: "badge badge-light",
-      total: total += order.subTotal})
+    e.target[0].value < 1
+      ? this.setState( {
+          quantClass: "form-control alert-warning", 
+          placeholder: "1 or Greater" })
+      : this.setState( {
+          orderList: [...this.state.orderList, order],
+          badge: "badge badge-light",
+          quantClass: "form-control",
+          placeholder: "Quantity",
+          total: total += order.subTotal})
     e.target.reset()
-    // let quantity = e.target
-    // console.log(quantity)
   }
 
   render() {
@@ -60,11 +62,15 @@ class App extends Component {
         {this.state.books[0] && this.state.filter === "title"
           ? <BookCardsTitle
               books={this.state.books}
-              addToCart={this.addToCart} />
+              addToCart={this.addToCart}
+              quantClass={this.state.quantClass}
+              placeholder={this.state.placeholder} />
           : this.state.filter === "author"
             ? <BookCardsAuthor
                 books={this.state.books}
-                addToCart={this.addToCart} />
+                addToCart={this.addToCart}
+                quantClass={this.state.quantClass}
+                placeholder={this.state.placeholder} />
             : <Loader type="Grid" color="red" height={80} width={80} />}
       </div>
     );

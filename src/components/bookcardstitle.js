@@ -10,13 +10,12 @@ const BookCardsTitle = (props) => {
                         <div className="card-body">
                             <h5 className="card-title">{books.title}</h5>
                             <p className="card-text">{books.subtitle}</p>
-                            {/* <button className="btn btn-outline-primary btn-block">Purchase for ${books.price}</button> */}
                             <form onSubmit={props.addToCart}>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text">${books.price}</span>
                                     </div>
-                                    <input id={books.id} type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Quantity"/>
+                                    <input id={books.id} type="number" className={props.quantClass} aria-label="Amount (to the nearest dollar)" placeholder={props.placeholder} />
                                     <div className="input-group-append">
                                         <button className="btn btn-outline-secondary" type="submit" id="button-addon2"><MaterialIcon icon="add_shopping_cart" size={18}/></button>
                                     </div>
