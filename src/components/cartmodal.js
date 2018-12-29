@@ -3,7 +3,13 @@ import CartItemsList from './CartItemsList.js';
 
 const CartModal = (props) => {
   return (
-    <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div 
+        className="modal fade" 
+        id="exampleModal" 
+        tabIndex="-1" 
+        role="dialog" 
+        aria-labelledby="exampleModalLabel" 
+        aria-hidden="true">
         <div className="modal-dialog" role="document">
             <div className="modal-content">
                 <div className="modal-header">
@@ -18,7 +24,10 @@ const CartModal = (props) => {
                     <p className="col-2">Price</p>
                 </div>
                 <CartItemsList orderList={props.orderList} />
-                <p className="text-right font-weight-bold" style={{marginRight: "15px"}}>Total ${props.total}</p><br/>
+                <p 
+                    className="text-right font-weight-bold" 
+                    style={{marginRight: "15px"}}>
+                        Total ${props.total}</p>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" className="btn btn-primary">Purchase</button>

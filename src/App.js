@@ -11,12 +11,12 @@ class App extends Component {
     super()
       this.state = {
         books: [],
+        orderList: [],
+        total: 0,
         filter: "title",
         badge: "d-none",
         quantClass: "form-control",
-        placeholder: "Quantity",
-        orderList: [],
-        total: 0
+        placeholder: "Quantity"
       }
   }
 
@@ -80,7 +80,7 @@ class App extends Component {
 export default App;
 
 
-
+// alternate fetch method
   // fetchBooks = () => {
   //   return fetch('http://localhost:8082/api/books')
   //   .then(res => res.json())
