@@ -29,7 +29,8 @@ class App extends Component {
   author = () => this.setState({ filter: "author" })
   title = () => this.setState({ filter: "title" })
   addToCart = (e) => { e.preventDefault()
-    let filteredProducts = this.state.books.filter((stuff) => stuff.id === e.target[0].id * 1 )
+    let filteredProducts = 
+      this.state.books.filter((stuff) => stuff.id === e.target[0].id * 1 )
     let order = {
       bookTitle: filteredProducts[0].title,
       quantity: e.target[0].value * 1,
@@ -37,7 +38,7 @@ class App extends Component {
     let total = this.state.total
     e.target[0].value < 1
       ? this.setState( {
-          quantClass: "form-control alert-warning", 
+          quantClass: "form-control alert-primary", 
           placeholder: "1 or Greater" })
       : this.setState( {
           orderList: [...this.state.orderList, order],
@@ -71,7 +72,7 @@ class App extends Component {
                 addToCart={this.addToCart}
                 quantClass={this.state.quantClass}
                 placeholder={this.state.placeholder} />
-            : <Loader type="Grid" color="red" height={80} width={80} />}
+            : <Loader type="Circles" color="red" height={200} width={200} /> }
       </div>
     );
   }
