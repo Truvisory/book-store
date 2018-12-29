@@ -1,3 +1,5 @@
+I am using material icons to identify the shopping cart and add to cart. Material can be installed using npm here:  [Material Icons Install](https://www.npmjs.com/package/material-icons-react)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
