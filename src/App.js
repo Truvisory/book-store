@@ -61,7 +61,7 @@ class App extends Component {
           ? <BookCardsTitle
               books={this.state.books}
               addToCart={this.addToCart} />
-          : this.state.books[0] && this.state.filter === "author"
+          : this.state.filter === "author"
             ? <BookCardsAuthor
                 books={this.state.books}
                 addToCart={this.addToCart} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import MaterialIcon from 'material-icons-react';
 
 const BookCardsTitle = (props) => {
     return ( 
@@ -13,11 +14,11 @@ const BookCardsTitle = (props) => {
                             <form onSubmit={props.addToCart}>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text">${books.price} ea.</span>
+                                        <span className="input-group-text">${books.price}</span>
                                     </div>
                                     <input id={books.id} type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Add Quantity"/>
                                     <div className="input-group-append">
-                                        <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Add to Cart</button>
+                                        <button className="btn btn-outline-secondary" type="submit" id="button-addon2"><MaterialIcon icon="add_shopping_cart" size={18}/></button>
                                     </div>
                                 </div>
                             </form>

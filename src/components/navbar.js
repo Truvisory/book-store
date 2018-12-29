@@ -1,4 +1,5 @@
 import React from 'react';
+import MaterialIcon from 'material-icons-react';
 
 const NavBar = (props) => {
   return (
@@ -16,7 +17,7 @@ const NavBar = (props) => {
                     <a className="dropdown-item" href="/#" id="title" onClick={props.title}>Arrange List by Title</a>
                 </div>
             </div>
-            <button type="button" className="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#exampleModal" style={{marginLeft: '5px'}}>Cart <span className={props.badge}>{props.orderItems}</span></button>
+            <button type="button" className="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#exampleModal" style={{marginLeft: '5px'}}><MaterialIcon icon="shopping_cart" color='white' size={20}/> <span className={props.badge}>{props.orderItems}</span></button>
         </div>
     </nav>
   )
