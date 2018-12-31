@@ -10,9 +10,9 @@ const NavBar = (props) => {
                 type="search" 
                 className="form-control bg-light" 
                 aria-label="Text input with segmented dropdown button" 
-                placeholder="Find Books"/>
+                placeholder="Search Titles"
+                onChange={props.search} />
             <div className="input-group-append">
-                <button type="button" className="btn btn-secondary">Search</button>
                 <button 
                     type="button" 
                     className="btn btn-primary dropdown-toggle dropdown-toggle-split" 

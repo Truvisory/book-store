@@ -11,6 +11,7 @@ class App extends Component {
     super()
       this.state = {
         books: [],
+        searchTitle: [],
         orderList: [],
         total: 0,
         filter: "title",
@@ -28,6 +29,17 @@ class App extends Component {
 
   author = () => this.setState({ filter: "author" })
   title = () => this.setState({ filter: "title" })
+  search = (e) => {
+    const arr = []
+    this.state.books.forEach((book) => {
+      if(book.title.indexOf(e.target.value) === -1) {
+        return
+      }
+      arr.push(book)
+      this.setState({searchTitle: arr})
+    })
+  }
+  
   addToCart = (e) => { e.preventDefault()
     let filteredProducts = 
       this.state.books.filter((stuff) => stuff.id === e.target[0].id * 1 )
@@ -50,9 +62,11 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.searchTitle[0])
     return (
       <div className="bg-light">
-        <NavBar 
+        <NavBar
+          search={this.search}
           author={this.author} 
           title={this.title}
           badge={this.state.badge}
@@ -62,13 +76,17 @@ class App extends Component {
           total={this.state.total}/>
         {this.state.books[0] && this.state.filter === "title"
           ? <BookCardsTitle
-              books={this.state.books}
+              books={this.state.searchTitle[0]
+                ? this.state.searchTitle
+                : this.state.books }
               addToCart={this.addToCart}
               quantClass={this.state.quantClass}
               placeholder={this.state.placeholder} />
           : this.state.filter === "author"
             ? <BookCardsAuthor
-                books={this.state.books}
+                books={this.state.searchTitle[0]
+                  ? this.state.searchTitle
+                  : this.state.books }
                 addToCart={this.addToCart}
                 quantClass={this.state.quantClass}
                 placeholder={this.state.placeholder} />

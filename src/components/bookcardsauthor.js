@@ -16,7 +16,8 @@ const BookCardsAuthor = (props) => {
                                         <span className="input-group-text">${books.price}</span>
                                     </div>
                                     <input 
-                                        id={books.id} type="number" 
+                                        id={books.id}
+                                        type="number" 
                                         className={props.quantClass} 
                                         aria-label="Amount (to the nearest dollar)" 
                                         placeholder={props.placeholder} />
