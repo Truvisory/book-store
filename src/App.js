@@ -62,7 +62,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.searchTitle[0])
     return (
       <div className="bg-light">
         <NavBar

@@ -38,17 +38,19 @@ const NavBar = (props) => {
                     </a>
                 </div>
             </div>
-            <button 
-                type="button" 
-                className="btn btn-outline-light btn-sm" 
-                data-toggle="modal" 
-                data-target="#exampleModal" 
-                style={{marginLeft: '5px'}}>
-                    <MaterialIcon 
-                        icon="shopping_cart" 
-                        color='white' 
-                        size={20}/><span className={props.badge}>{props.orderItems}</span>
-            </button>
+            <div className="input-group-append">
+                <button 
+                    type="button" 
+                    className="btn btn-outline-primary" 
+                    data-toggle="modal" 
+                    data-target="#exampleModal" 
+                    >
+                        <MaterialIcon 
+                            icon="shopping_cart" 
+                            color='white' 
+                            size={18}/><span className={props.badge}>{props.orderItems}</span>
+                </button>
+            </div>
         </div>
     </nav>
   )
