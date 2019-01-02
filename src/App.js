@@ -4,7 +4,7 @@ import CartModal from './components/cartmodal';
 import BookCardsTitle from './components/bookcardstitle'
 import BookCardsAuthor from './components/bookcardsauthor'
 import Loader from 'react-loader-spinner'
-const url = 'http://localhost:8082/api/books'
+const url = "/api/books"
 
 class App extends Component {
   constructor(){
