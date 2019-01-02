@@ -21,6 +21,20 @@ const BookCardsTitle = (props) => {
                                         className={props.quantClass} 
                                         aria-label="Amount (to the nearest dollar)" 
                                         placeholder={props.placeholder} />
+                                    {/* <div className="input-group-append">
+                                        <button 
+                                            className="btn btn-outline-secondary" 
+                                            type="button" id="subtract">
+                                                -
+                                        </button>
+                                    </div>
+                                    <div className="input-group-append">
+                                        <button 
+                                            className="btn btn-outline-secondary" 
+                                            type="button" id="add">
+                                                +
+                                        </button>
+                                    </div> */}
                                     <div className="input-group-append">
                                         <button 
                                             className="btn btn-outline-secondary" 
@@ -32,7 +46,7 @@ const BookCardsTitle = (props) => {
                                     </div>
                                 </div>
                             </form>
-                            <p className="card-text"><small className="text-muted">{books.author}</small></p>
+                            {/* <p className="card-text"><small className="text-muted">{books.author}</small></p> */}
                             <div className="dropdown">
                                 <button 
                                     className="btn btn-secondary btn-sm dropdown-toggle" 

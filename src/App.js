@@ -12,6 +12,7 @@ class App extends Component {
       this.state = {
         books: [],
         searchTitle: [],
+        others: [],
         orderList: [],
         total: 0,
         filter: "title",
@@ -31,15 +32,18 @@ class App extends Component {
   title = () => this.setState({ filter: "title" })
   search = (e) => {
     const arr = []
+    const arr2 = []
     this.state.books.forEach((book) => {
       if(book.title.indexOf(e.target.value) === -1) {
+        arr2.push(book)
+        this.setState({ others: arr2 })
         return
       }
       arr.push(book)
-      this.setState({searchTitle: arr})
+      this.setState({ searchTitle: arr })
     })
   }
-  
+
   addToCart = (e) => { e.preventDefault()
     let filteredProducts = 
       this.state.books.filter((stuff) => stuff.id === e.target[0].id * 1 )
@@ -73,6 +77,11 @@ class App extends Component {
         <CartModal 
           orderList={this.state.orderList}
           total={this.state.total}/>
+        {this.state.others.length === this.state.books.length 
+          ? <div className="alert-primary text-center">
+              Maybe it's misspelled? Give it another go.
+            </div> 
+          : <div></div>}
         {this.state.books[0] && this.state.filter === "title"
           ? <BookCardsTitle
               books={this.state.searchTitle[0]
