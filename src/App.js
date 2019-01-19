@@ -4,7 +4,7 @@ import CartModal from './components/cartmodal';
 import BookCardsTitle from './components/bookcardstitle'
 import BookCardsAuthor from './components/bookcardsauthor'
 import Loader from 'react-loader-spinner'
-const url = "/api/books"
+const url = "https://peaceful-inlet-98478.herokuapp.com/api/books"
 
 class App extends Component {
   constructor(){
